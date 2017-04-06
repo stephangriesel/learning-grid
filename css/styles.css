@@ -80,7 +80,7 @@ Gutters or alleys between grid cells can be created using the grid-column-gap an
 
 /* Nesting grids */
 
-.box1 {
+/* .box1 {
    grid-column-start: 1;
    grid-column-end: 4;
    grid-row-start: 1;
@@ -91,4 +91,15 @@ Gutters or alleys between grid cells can be created using the grid-column-gap an
 
 .nested {
     background-color: pink;
+} */
+
+/* Subgrid */
+
+.box1 {
+   grid-column-start: 1;
+   grid-column-end: 4;
+   grid-row-start: 1;
+   grid-row-end: 3;
+   display: subgrid;
 }
+
