@@ -205,7 +205,7 @@ The first example uses flexbox, I have a container with three items inside. The 
 
 This second example uses a grid to create the same layout, this time we are using the box alignment properties as they apply to a grid layout. So we align to start and end rather than flex-start and flex-end. In the case of a grid layout we are aligning the items inside their grid area, in this case that is a single grid cell, but could be an area made up of several grid cells. */
 
-.wrapper {
+/* .wrapper {
    display: grid;
    grid-template-columns: repeat(3,1fr);
    align-items: end;
@@ -221,4 +221,24 @@ This second example uses a grid to create the same layout, this time we are usin
 
 .box3 {
     background-color: yellow;
+} */
+
+/* The fr unit and flex-basis
+
+We have already seen how the fr unit works to assign a proportion of available space in the grid container to our grid tracks. The fr unit, when combined with the minmax function can give us very similar behavior to the flex properties in flexbox - while still enabling the creation of layout in two dimensions.
+
+If we look back at the example where I demonstrated the difference between one and two dimensional layouts, you can see there is a difference between the way the two layout work responsively. With the flex layout, if we drag our window wider and smaller flex box nicely deals with adjusting the number of items in each row according to the available space. If we have a lot of space all five items can fit on one row, if we have a very narrow container we might just have space for one.
+
+In comparison the grid version always has three column tracks, The tracks themselves will grow and shrink, but there are always three as we asked for three when defining our grid.
+
+Auto-filling grid tracks
+
+We can create a similar effect to flexbox, while still keeping the content arranged in strict rows and columns by creating our track listing using repeat notation and the auto-fill and auto-fit properties.
+
+In this next example I have used the auto-fill keyword in place of an integer in the repeat notation and set the track listing to 200 pixels. This means that grid will create as many 200 pixels column tracks as will fit in the container. */
+
+.wrapper {
+    background-color: green;
+   display: grid;
+   grid-template-columns: repeat(auto-fill, 100px);
 }
