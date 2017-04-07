@@ -237,8 +237,18 @@ We can create a similar effect to flexbox, while still keeping the content arran
 
 In this next example I have used the auto-fill keyword in place of an integer in the repeat notation and set the track listing to 200 pixels. This means that grid will create as many 200 pixels column tracks as will fit in the container. */
 
-.wrapper {
+/* .wrapper {
     background-color: green;
    display: grid;
    grid-template-columns: repeat(auto-fill, 100px);
+} */
+
+/* A flexible number of tracks
+
+This isn’t quite the same as flexbox, in the flexbox example the items are larger than the 200 pixel basis before wrapping. We can achieve the same in grid by combining auto-fill and the minmax function. In this next example I create auto filled tracks with minmax. I want my tracks to be a minimum of 200 pixels, and I then set the maximum to be 1fr. Once the browser has worked out how many times 200 pixels will fit into the container - also taking account of grid gaps - it will treat the 1fr maximum as an instruction to share out the remaining space between the items. */
+
+.wrapper {
+    background-color: green;
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
