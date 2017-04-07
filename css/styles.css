@@ -157,7 +157,7 @@ In this next example I create the same layout using Grid. This time we have thre
 
 .wrapper {
    display: grid;
-   grid-template-columns: repeat(3, 1fr);
+   grid-template-rows: repeat(3, 1fr);
 }
 
 
