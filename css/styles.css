@@ -185,6 +185,8 @@ The first example uses flexbox, I have a container with three items inside. The 
 
 /* CSS Box Alignment Module Level 3: https://drafts.csswg.org/css-align/ */
 
+/* Box alignment with Flexbox */
+
 .wrapper {
    display: flex;
    align-items: flex-end;
