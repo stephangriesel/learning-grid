@@ -247,8 +247,43 @@ In this next example I have used the auto-fill keyword in place of an integer in
 
 This isn’t quite the same as flexbox, in the flexbox example the items are larger than the 200 pixel basis before wrapping. We can achieve the same in grid by combining auto-fill and the minmax function. In this next example I create auto filled tracks with minmax. I want my tracks to be a minimum of 200 pixels, and I then set the maximum to be 1fr. Once the browser has worked out how many times 200 pixels will fit into the container - also taking account of grid gaps - it will treat the 1fr maximum as an instruction to share out the remaining space between the items. */
 
-.wrapper {
+/* .wrapper {
     background-color: green;
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+} */
+
+/* ############################################################### */
+
+/* Grid and absolutely positioned elements */
+
+/* Grid interacts with absolutely positioned elements, which can be useful if you want to position an item inside a grid or grid area. The specification defines the behavior when a grid container is a containing block and where the grid container is a parent of the absolutely positioned item.
+
+A grid container as containing block
+
+To make the grid container a containing block you need to add the position property to the container with a value of relative, just as you would to make a containing block for any other absolutely positioned items. Once you have done this, if you give a grid item position: absolute it will take as its containing block the grid container or, if the item also has a grid position, the are of the grid it is placed into.
+
+In the below example I have a wrapper containing four child items, item three is absolutely positioned and also placed on the grid using line-based placement. The grid container has position: relative and so becomes the positioning context of this item.*/
+
+.wrapper {
+    background-color: red;
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   grid-auto-rows: 200px;
+   grid-gap: 20px;
+   position: relative;
 }
+.box3 {
+    background-color:yellow;
+   grid-column-start: 2;
+   grid-column-end: 3;
+   grid-row-start: 1;
+   grid-row-end: 2;
+   position: absolute;
+   top: 40px;
+   left: 40px;
+}
+
+/* You can see that the item is taking the area from grid row line 2 to 4, and starting after line 1. Then it is offset in that area using the top and left properties. However, it has been taken out of flow as is usually for absolutely positioned items and so the auto-placement rules now place items into the same space. The item also doesn’t cause the additional row to be created to span to row line 3.
+
+If we remove position: absolute from the rules for .box3 you can see how it would display without the positioning. */
