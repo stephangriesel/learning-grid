@@ -155,9 +155,46 @@ I have also set the flex-wrap property to wrap, so that if the space in the cont
 
 In this next example I create the same layout using Grid. This time we have three 1fr column tracks. We do not need to set anything on the items themselves, they will lay themselves out one into each cell of the created grid. As you can see they stay in a strict grid, lining up in rows and columns. With five items, we get a gap on the end of row two.*/
 
-.wrapper {
+/* .wrapper {
    display: grid;
    grid-template-rows: repeat(3, 1fr);
+} */
+
+/* A very simple question to ask yourself when decided between grid or flexbox is:
+
+do I only need to control the layout by row or column – use a flexbox
+do I need to control the layout by row and column – use a grid */
+
+/* Content out or layout in? */
+
+/* In addition to the one-dimensional versus two-dimensional distinction, there is another way to decide if you should use flexbox or grid for a layout. Flexbox works from the content out. An ideal use case for flexbox is when you have a set of items and want to space them out evenly in a container. You let the size of the content decide how much individual space each item takes up. If the items wrap onto a new line, they will work out their spacing based on their size and the available space in that line.
+
+Grid works from the layout in. When you use CSS Grid Layout you create a layout and then you place items into it, or you allow the auto-placement rules to place the items into the grid cells according to that strict grid. There is the ability to create tracks that respond to the size of the content, however they will also change the entire track.
+
+If you are using flexbox and find yourself disabling some of the flexibility, you probably need to use CSS Grid Layout. An example would be if you are setting a percentage width on a flex item to make it line up with other items in a row above. In that case a grid is likely to be a better choice.
+
+/* Box alignment */
+
+/* The feature of flexbox that was most exciting to many of us was that it gave us proper alignment control for the first time. It made it easy to center a box on the page. Flex items can stretch to the height of the flex container meaning that equal height columns were possible. These were things we have wanted to do for a very long time, and have come up with all kinds of hacks to at least create the visual effect of.
+
+The alignment properties from the flexbox specification have been added to a new specification called Box Alignment Level 3. This means that they can be used in other specifications, including Grid Layout. In the future they may well apply to other layout methods as well.
+
+In a later guide in this series I’ll be taking a proper look at Box Alignment and how it works in Grid Layout, here however is a simple example comparing flexbox to grid.
+
+The first example uses flexbox, I have a container with three items inside. The wrapper min-height is set, so it is defining the height of the flex container. I have set align-items on the flex container to flex-end so the items will line up at the end of the flex container. I have also set the align-self property on box1 so it will override the default and stretch to the height of the container and on box2 so it aligns to the start of the flex container. */
+
+/* CSS Box Alignment Module Level 3: https://drafts.csswg.org/css-align/ */
+
+.wrapper {
+   display: flex;
+   align-items: flex-end;
+   min-height: 200px; 
 }
-
-
+.box1 {
+    background-color: red;
+   align-self: stretch;
+}
+.box2 {
+    background-color: blue;
+   align-self: flex-start;
+}
