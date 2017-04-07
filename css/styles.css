@@ -107,7 +107,7 @@ Gutters or alleys between grid cells can be created using the grid-column-gap an
 
 /* Layering items with z-index */
 
-.wrapper {
+/* .wrapper {
    display: grid;
    grid-template-columns: repeat(3, 1fr);
    grid-auto-rows: 100px;
@@ -126,7 +126,30 @@ Gutters or alleys between grid cells can be created using the grid-column-gap an
    grid-row-start: 2;
    grid-row-end: 4;
    z-index: 2;
+} */
+
+/* ############################################################### */
+
+/* Grid and flexbox */
+
+/* The basic difference between CSS Grid Layout and CSS Flexbox Layout is that flexbox was designed for layout in one dimension, layout in a row or a column. Grid was designed for two-dimensional layout, layout in rows and columns at the same time. The two specifications share some common features however and if you have already learned how to use flexbox you will hopefully see similarities that help you get to grips with Grid. */
+
+/* One-dimensional vs. two-dimensional layout
+
+A simple example can demonstrate the difference between one- and two-dimensional layout.
+
+In this first example I am using flexbox to lay out a set of boxes. I have five child items in my container, and I have given the flex properties values so that they can grow and shrink from a flex-basis of 200 pixels.
+
+I have also set the flex-wrap property to wrap, so that if the space in the container becomes too narrow to maintain the flex basis, items will wrap onto a new row.*/
+
+/* .wrapper {
+   display: flex;
+   flex-wrap: wrap;
 }
+.wrapper > div {
+    background-color: red;
+   flex: 1 1 200px;
+} */
 
 
 
