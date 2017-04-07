@@ -187,7 +187,7 @@ The first example uses flexbox, I have a container with three items inside. The 
 
 /* Box alignment with Flexbox */
 
-.wrapper {
+/* .wrapper {
    display: flex;
    align-items: flex-end;
    min-height: 200px; 
@@ -199,4 +199,26 @@ The first example uses flexbox, I have a container with three items inside. The 
 .box2 {
     background-color: blue;
    align-self: flex-start;
+} */
+
+/* Alignment in CSS Grids
+
+This second example uses a grid to create the same layout, this time we are using the box alignment properties as they apply to a grid layout. So we align to start and end rather than flex-start and flex-end. In the case of a grid layout we are aligning the items inside their grid area, in this case that is a single grid cell, but could be an area made up of several grid cells. */
+
+.wrapper {
+   display: grid;
+   grid-template-columns: repeat(3,1fr);
+   align-items: end;
+   grid-auto-rows: 800px;
+}.box1 {
+   align-self: stretch;
+   background-color: red;
+}
+.box2 {
+   align-self: start;
+   background-color: blue;
+}
+
+.box3 {
+    background-color: yellow;
 }
