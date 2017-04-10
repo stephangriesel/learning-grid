@@ -323,7 +323,7 @@ If we remove position: absolute from the rules for .box3 you can see how it woul
 
 I have given .box3 position relative and then positioned the sub-item with the offset properties. In this case the positioning context is the grid area. */
 
-* {box-sizing: border-box;}
+/* * {box-sizing: border-box;}
 
 .wrapper {
    display: grid;
@@ -346,4 +346,53 @@ I have given .box3 position relative and then positioned the sub-item with the o
    border: 1px solid rgba(0,0,0,0.5);
    color: #000;
    padding: 10px;
+} */
+
+/* ############################################################### */
+
+/* Grid and display: contents */
+
+/* A final interaction with another layout specification that is worth noting is the interaction between CSS Grid Layout and display: contents. The contents value of the display property is a new value that is described in the Display specification (https://drafts.csswg.org/css-display/#box-generation) as follows:
+
+“The element itself does not generate any boxes, but its children and pseudo-elements still generate boxes as normal. For the purposes of box generation and layout, the element must be treated as if it had been replaced with its children and pseudo-elements in the document tree.”
+
+If you set an item to display: contents the box it would normally create disappears, and the boxes of the child elements appear as if they have risen up a level. This means that children of a grid item can become grid items. Sound odd? Here is a simple example. In the following markup I have a grid, the first item on the grid is set to span all three column tracks. It contains three nested items. As these items are not direct children, they don’t become part of the grid layout and so display using regular block layout. */
+
+/* * {
+    box-sizing: border-box;
+}
+
+.wrapper {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-auto-rows: minmax(100px, auto);
+}
+.box1 {
+   grid-column-start: 1;
+   grid-column-end: 4;
+}
+
+.box2 {
+    background-color: red;
+}
+
+/* If I now add display: contents to the rules for box1, the box for that item vanishes and the sub-items now become grid items and lay themselves out using the auto-placement rules.*/
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   grid-auto-rows: minmax(100px, auto);
+}
+.box1 {
+   grid-column-start: 1;
+   grid-column-end: 4;
+   display:contents;
+}
+
+.box2 {
+    background-color: red;
 }
