@@ -265,7 +265,7 @@ To make the grid container a containing block you need to add the position prope
 
 In the below example I have a wrapper containing four child items, item three is absolutely positioned and also placed on the grid using line-based placement. The grid container has position: relative and so becomes the positioning context of this item.*/
 
-.wrapper {
+/*.wrapper {
     background-color: red;
    display: grid;
    grid-template-columns: repeat(4,1fr);
@@ -287,3 +287,30 @@ In the below example I have a wrapper containing four child items, item three is
 /* You can see that the item is taking the area from grid row line 2 to 4, and starting after line 1. Then it is offset in that area using the top and left properties. However, it has been taken out of flow as is usually for absolutely positioned items and so the auto-placement rules now place items into the same space. The item also doesn’t cause the additional row to be created to span to row line 3.
 
 If we remove position: absolute from the rules for .box3 you can see how it would display without the positioning. */
+
+/* A grid container as parent
+
+If the absolutely positioned child has a grid container as a parent but that container does not create a new positioning context, then it is taken out of flow as in the previous example. The positioning context will be whatever element creates a positioning context as is common to other layout methods. In our case if we remove position: relative from the wrapper below, positioning context is from the viewport, as shown in this image.*/
+
+.wrapper {
+    background-color: red;
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   grid-auto-rows: 200px;
+   grid-gap: 20px;
+   /* position: relative;*/
+}
+.box3 {
+    background-color:yellow;
+   grid-column-start: 2;
+   grid-column-end: 3;
+   grid-row-start: 2;
+   grid-row-end: 2;
+   position: absolute;
+   top: 40px; 
+   /* left: 40px;*/
+}
+
+/* Once again the item no longer participates in the grid layout in terms of sizing or when other items are auto-placed.*/
+
+/* 
